@@ -1,0 +1,29 @@
+Package: RashomonDETECT
+Title: Rashomon_DETECT algorithm implementation
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Mateusz", "Krzyziński", email = "mateusz.krzyzinski.stud@pw.edu.pl", role = c("aut", "cre")),
+    person("Katarzyna", "Kobylińska", role = c("aut")),
+    person("Przemyslaw", "Biecek", role = c("aut"))
+    )
+Description: Code for `Rashomon_DETECT` algorithm described in 'Exploration of Rashomon Set Assists Explanations
+for Medical Data'
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+  DALEX,
+  fda.usc,
+  doremi, 
+  ggplot2,
+  GGally,
+  reshape2,
+Suggests: 
+  testthat,
+  ranger,
+  randomForest,
+  gbm
+  
+
