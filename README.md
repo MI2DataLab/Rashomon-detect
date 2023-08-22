@@ -1,2 +1,2 @@
-# Radhomon-detect
-Radhomon-detect algorithm
+# Rashomon-detect
+Rashomon-detect algorithm
