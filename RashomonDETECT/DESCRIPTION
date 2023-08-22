@@ -7,8 +7,7 @@ Authors@R:
     person("Katarzyna", "Kobylińska", role = c("aut")),
     person("Przemyslaw", "Biecek", role = c("aut"))
     )
-Description: Code for `Rashomon_DETECT` algorithm described in 'Exploration of Rashomon Set Assists Explanations
-for Medical Data'
+Description: Code for `Rashomon_DETECT` algorithm described in 'Exploration of Rashomon Set Assists Explanations for Medical Data'
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
