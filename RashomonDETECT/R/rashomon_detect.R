@@ -11,6 +11,7 @@
 #' @param performance_measure Performance measure used to evaluate model performance on data in explainers. For regression, options include `"mse"`, `"rmse"`, `"r2"`, or `"mad"`. For classification, options include `"auc"`, `"accuracy"`, `"f1"`, `"recall"`, or `"precision"`. Defaults are `"mse"` and `"auc"`.
 #' @param sorted Whether models are sorted by performance. If not, sorting will be performed based on performance on data in explainers.
 #' @param k Number of models to be detected as most different.
+#' @param profile_type Method used for generating profiles. Options are `"pdp"` for Partial Dependence Plots and `"ale"` for Accumulated Local Effects. 
 #' @param pdi_method_numerical Method for comparing profiles for numerical variables. Options are `"pdi"`, `"derivative l2"`, `"l2"`, or a custom function that takes three numerical vectors (profile 1, profile 2, and variable values) and returns a distance.
 #' @param pdi_method_categorical Method for comparing profiles for categorical variables. Options are `"vector_distance"` or a custom function that takes three numerical vectors (profile 1, profile 2, and variable values) and returns a distance.
 #' @param comparison Comparison method: `"all"` if the next model should be selected based on comparison with all previously selected models; `"last"` if it should be compared only with the last selected model.
@@ -51,6 +52,7 @@ rashomon_detect <- function(explainers_list,
                             performance_measure = NULL,
                             sorted = FALSE,
                             k = 2,
+                            profile_type = "pdp",
                             pdi_method_numerical = "pdi",
                             pdi_method_categorical = "vector_distance",
                             comparison = "last",
@@ -64,6 +66,8 @@ rashomon_detect <- function(explainers_list,
   }
 
   stopifnot(length(explainers_list) > k)
+  stopifnot(profile_type %in% c("pdp", "ale"))
+  profile_type <- ifelse(profile_type == "pdp", "partial", "accumulated")
 
   performance_vals <-
     get_performance_vals(explainers_list, performance_measure)
@@ -81,7 +85,8 @@ rashomon_detect <- function(explainers_list,
     explainers_list,
     model_profile,
     N = N,
-    variable_splits = variable_splits
+    variable_splits = variable_splits,
+    type = profile_type
   )
   res$profiles_numerical <- profiles_numerical
 
@@ -91,7 +96,8 @@ rashomon_detect <- function(explainers_list,
       explainers_list,
       model_profile,
       N = N,
-      variable_type = "categorical"
+      variable_type = "categorical",
+      type = profile_type
     )
     res$profiles_categorical <- profiles_categorical
   }

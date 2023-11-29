@@ -9,6 +9,7 @@ rashomon_detect(
   performance_measure = NULL,
   sorted = FALSE,
   k = 2,
+  profile_type = "pdp",
   pdi_method_numerical = "pdi",
   pdi_method_categorical = "vector_distance",
   comparison = "last",
@@ -25,6 +26,8 @@ rashomon_detect(
 \item{sorted}{Whether models are sorted by performance. If not, sorting will be performed based on performance on data in explainers.}
 
 \item{k}{Number of models to be detected as most different.}
+
+\item{profile_type}{Method used for generating profiles. Options are \code{"pdp"} for Partial Dependence Plots and \code{"ale"} for Accumulated Local Effects.}
 
 \item{pdi_method_numerical}{Method for comparing profiles for numerical variables. Options are \code{"pdi"}, \code{"derivative l2"}, \code{"l2"}, or a custom function that takes three numerical vectors (profile 1, profile 2, and variable values) and returns a distance.}
 
