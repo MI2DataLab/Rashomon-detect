@@ -1,13 +1,13 @@
 Package: RashomonDETECT
 Title: Rashomon_DETECT algorithm implementation
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     c(
     person("Mateusz", "Krzyziński", email = "mateusz.krzyzinski.stud@pw.edu.pl", role = c("aut", "cre")),
     person("Katarzyna", "Kobylińska", role = c("aut")),
     person("Przemyslaw", "Biecek", role = c("aut"))
     )
-Description: Code for `Rashomon_DETECT` algorithm described in 'Exploration of Rashomon Set Assists Explanations for Medical Data'
+Description: Code for `Rashomon_DETECT` algorithm described in 'Exploration of the Rashomon Set Assists Trustworthy Explanations for Medical Data'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
