@@ -7,4 +7,4 @@ K. Kobylińska, M. Krzyziński, R. Machowicz, M. Adamek, P. Biecek *Exploration 
 for Medical Data*. [arXiv:2308.11446](https://arxiv.org/abs/2308.11446])
 
 
-![figures/Framework.png](figures/Framework.png)
+![figures/ReadMe.png](figures/ReadMe.png)
