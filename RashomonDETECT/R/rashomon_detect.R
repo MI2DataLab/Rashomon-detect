@@ -59,8 +59,11 @@ rashomon_detect <- function(explainers_list,
                             include_categorical_variables = TRUE,
                             N = NULL,
                             variable_splits = NULL) {
+  
+  task_type <- unique(sapply(explainers_list, function(x) x$model_info$type))
+  stopifnot("There are models of different task type in the list of explainers" = length(task_type) == 1)
+  
   if (is.null(performance_measure)) {
-    task_type <- explainers_list[[1]]$model_info$type
     performance_measure <-
       ifelse(task_type == "classification", "auc", "mse")
   }
