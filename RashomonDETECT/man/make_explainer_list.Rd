@@ -4,7 +4,7 @@
 \alias{make_explainer_list}
 \title{Create a List of Explainers from Models}
 \usage{
-make_explainer_list(model1, ..., data, y, verbose = FALSE)
+make_explainer_list(model1, ..., data, y, task_type = NULL, verbose = FALSE)
 }
 \arguments{
 \item{model1}{The primary model for which an explainer will be created.}
@@ -14,6 +14,8 @@ make_explainer_list(model1, ..., data, y, verbose = FALSE)
 \item{data}{The dataset used that will be used for explaining the models (creating profiles).}
 
 \item{y}{Response variable in the dataset.}
+
+\item{task_type}{The type of task (classification or regression) for the models. If not specified then type will be extracted using \code{DALEX::model_info}.}
 
 \item{verbose}{If TRUE, verbose output will be printed during explanation.}
 }

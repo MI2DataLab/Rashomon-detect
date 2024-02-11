@@ -9,6 +9,7 @@
 #' @param ... Additional models for which explainers will be created.
 #' @param data The dataset used that will be used for explaining the models (creating profiles).
 #' @param y Response variable in the dataset.
+#' @param task_type The type of task (classification or regression) for the models. If not specified then type will be extracted using `DALEX::model_info`.
 #' @param verbose If TRUE, verbose output will be printed during explanation.
 #'
 #' @return A list of model explainers for the provided models.
@@ -36,11 +37,12 @@
 #' explainers
 #'
 make_explainer_list <-
-  function(model1, ..., data, y, verbose = FALSE) {
+  function(model1, ..., data, y, task_type = NULL, verbose = FALSE) {
     model_list <- list(model1, ...)
     lapply(model_list,
            explain,
            data = data,
            y = y,
+           type = task_type,
            verbose = verbose)
   }
